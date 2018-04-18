@@ -14,6 +14,30 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+let arr = [];
+const giveHash = n => {
+  let str = '';
+  for (let index = 0; index < n; index++) {
+    str = str + '#';
+  }
+  arr.push(`called with ${n}`);
+  return str;
+};
+
+function pyramid(n) {
+  for (let index = 1; index <= n; index++) {
+    let str = '';
+    for (let index2 = 0; index2 < n - index; index2++) {
+      str = str + ' ';
+    }
+    str = str + giveHash(index * 2 - 1);
+    for (let index4 = 0; index4 < n - index; index4++) {
+      str = str + ' ';
+    }
+    console.log(str);
+  }
+}
+
+pyramid(3);
 
 module.exports = pyramid;
